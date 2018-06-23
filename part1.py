@@ -13,7 +13,7 @@ nltk.download('averaged_perceptron_tagger', quiet=True)
 # usage should be python3 part1.py <username> <num_tweets>
 
 print("Warning: Replies are also considered as tweets!")
-print("Warning: CSV file use \\r\\n as line terminator!")
+print("Warning: CSV file uses \\r\\n as line terminator!")
 
 consumer_key = 'ero6eldSp2RvmBhAqMJVAdsgz'
 consumer_secret = '3maLK8fD5my1BvUpi2omLPZesxHMyccgYOnyZvL2JSckWDtPtf'
@@ -77,7 +77,6 @@ for key, value in sorted(word_count.items(), key=lambda kv: (kv[1], kv[0]), reve
     if len(verb) == 5 and len(noun) == 5 and len(adjective) == 5:
         break
 
-
 print("USER: ", user)
 print("TWEETS ANALYZED: ", tweet_analyzed)
 print("VERBS:", end=' ')
@@ -95,9 +94,9 @@ print("ORIGINAL TWEETS: ", original_tweets)
 print("TIMES FAVORITED (ORIGINAL TWEETS ONLY): ", time_favorited)
 print("TIMES RETWEETED (ORIGINAL TWEETS ONLY): ", time_retweeted)
 
-with open('noun_data.csv', 'w') as csvfile:
-    writer = csv.writer(csvfile, delimiter=',', lineterminator='\r\n')
+with open('noun_data.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file, delimiter=',', lineterminator='\r\n')
     writer.writerow(['Noun', 'Number'])
     for key, value in sorted(noun.items(), key=lambda kv: (kv[1], kv[0]), reverse=True):
         writer.writerow([key, value])
-    csvfile.close()
+    csv_file.close()
