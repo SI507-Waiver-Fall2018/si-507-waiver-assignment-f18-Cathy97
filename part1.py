@@ -63,7 +63,7 @@ for tweet in tweets:
 verb = {}
 noun = {}
 adjective = {}
-for key, value in sorted(word_count.items(), key=lambda kv: (kv[1], kv[0]), reverse=True):
+for key, value in sorted(word_count.items(), key=lambda kv: (-kv[1], kv[0])):
     tag = nltk.pos_tag([key])[0][1]
     if tag.startswith('VB'):
         if len(verb) < 5:
@@ -80,15 +80,15 @@ for key, value in sorted(word_count.items(), key=lambda kv: (kv[1], kv[0]), reve
 print("USER: ", user)
 print("TWEETS ANALYZED: ", tweet_analyzed)
 print("VERBS:", end=' ')
-for key, value in sorted(verb.items(), key=lambda kv: (kv[1], kv[0]), reverse=True):
+for key, value in sorted(verb.items(), key=lambda kv: (-kv[1], kv[0])):
     print(key+"("+str(value)+")", end=' ')
 print()
 print("NOUNS:", end=' ')
-for key, value in sorted(noun.items(), key=lambda kv: (kv[1], kv[0]), reverse=True):
+for key, value in sorted(noun.items(), key=lambda kv: (-kv[1], kv[0])):
     print(key+"("+str(value)+")", end=' ')
 print()
 print("ADJECTIVES:", end=' ')
-for key, value in sorted(adjective.items(), key=lambda kv: (kv[1], kv[0]), reverse=True):
+for key, value in sorted(adjective.items(), key=lambda kv: (-kv[1], kv[0])):
     print(key+"("+str(value)+")", end=' ')
 print("ORIGINAL TWEETS: ", original_tweets)
 print("TIMES FAVORITED (ORIGINAL TWEETS ONLY): ", time_favorited)
