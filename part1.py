@@ -90,6 +90,7 @@ print()
 print("ADJECTIVES:", end=' ')
 for key, value in sorted(adjective.items(), key=lambda kv: (-kv[1], kv[0])):
     print(key+"("+str(value)+")", end=' ')
+print()
 print("ORIGINAL TWEETS: ", original_tweets)
 print("TIMES FAVORITED (ORIGINAL TWEETS ONLY): ", time_favorited)
 print("TIMES RETWEETED (ORIGINAL TWEETS ONLY): ", time_retweeted)
